@@ -1,5 +1,6 @@
 package com.hello.core.member;
 
+import com.hello.core.AppConfig;
 import com.hello.core.service.MemberService;
 import com.hello.core.service.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
@@ -8,7 +9,8 @@ import org.junit.jupiter.api.Test;
 
 public class MemberServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
 
     /*
     조금 더 일반적인 상황이라고 가정

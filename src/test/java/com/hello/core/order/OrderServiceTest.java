@@ -1,5 +1,6 @@
 package com.hello.core.order;
 
+import com.hello.core.AppConfig;
 import com.hello.core.member.Grade;
 import com.hello.core.member.Member;
 import com.hello.core.service.MemberService;
@@ -11,9 +12,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class OrderServiceTest {
-
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
+    OrderService orderService = appConfig.orderService();
 
     @DisplayName("주문생성 성공")
     @Test
