@@ -19,17 +19,20 @@ class StatefulServiceTest {
         StatefulService statefulService2 = ac.getBean(StatefulService.class);
 
         // ThreadA : A사용자가 10000원 주문
-        statefulService1.order("userA", 10000);
+        int userAPrice = statefulService1.order("userA", 10000);
 
         // ThreadB : B사용자가 20000원 주문
-        statefulService2.order("userB", 20000);
+        int userBPrice = statefulService2.order("userB", 20000);
 
         // ThreadA : 사용자A 주문 금액 조회
-        int price = statefulService1.getPrice();
+        // int price = statefulService1.getPrice();
 
         // 10000원 예상했지만 20000원이 나옴.
         // 실패 : assertThat(price).isEqualTo(10000);
-        assertThat(price).isEqualTo(20000);
+        // assertThat(price).isEqualTo(20000);
+
+        // assertThat(userAPrice).isEqualTo(10000);
+        assertThat(userBPrice).isEqualTo(20000);
 
     }
 
