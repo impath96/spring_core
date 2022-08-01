@@ -1,4 +1,4 @@
-package com.hello;
+package com.hello.core;
 
 import com.hello.core.AppConfig;
 import com.hello.core.member.Grade;
